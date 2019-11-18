@@ -42,7 +42,7 @@ endef
 
 define Build/Prepare
 	$(call Build/Prepare/Default)
-	# Strip X509_TEA_set_state test check in configure.ac See - https://github.com/duosecurity/duo_unix/issues/170
+	# Comment out the X509_TEA_set_state test check in configure.ac See - https://github.com/duosecurity/duo_unix/issues/170
 	sed --in-place=.default -e '99s/^/#/' -e '101s/^/#/' -e '102s/^/#/' -e '103s/^/#/' -e '104s/^/#/' -e '105s/^/#/' -e '106s/^/#/' -e '107s/^/#/' $(PKG_BUILD_DIR)/configure.ac
 endef
 
