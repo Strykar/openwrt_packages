@@ -1,6 +1,31 @@
 # openwrt_packages
-Some OpenWrt package Makefiles I made with help from #openwrt-devel
+Some OpenWrt package Makefiles I made with help from _#openwrt-devel_.
 
-1. [duo_unix](https://github.com/Strykar/openwrt_packages/tree/master/duo_unix) - Duo Unix is a stand alone executable that can be used to protect programs such as OpenSSH or Sudo. I don't use _openssh-server-pam_ and _login_duo_ is	built without PAM support. See - https://duo.com/docs/loginduo
+TODO: Create a feed, I currently cross compile for [x86_64](https://openwrt.org/toh/pcengines/apu2) and [MT7628NN](https://openwrt.org/toh/tp-link/tl-mr3020_v3). I do have some [bcm53xx](https://openwrt.org/docs/techref/targets/bcm53xx) and [ath79](https://openwrt.org/docs/techref/targets/ath79) devices.
 
-2. [mosh](https://github.com/Strykar/openwrt_packages/tree/master/mosh) - Mosh is a replacement for interactive SSH terminals. It's more robust and responsive, especially over Wi-Fi, cellular, and long-distance links. See - https://mosh.org
+1. [duo_unix](https://github.com/Strykar/openwrt_packages/tree/master/duo_unix) - Duo Unix is a stand alone executable that can be used to protect programs such as OpenSSH or Sudo. `login_duo` is	built to use with `openssh-server` without PAM support. Configure `sshd_config` with `ForceCommand=/usr/sbin/login_duo`. This will [not work with Mosh](https://github.com/mobile-shell/mosh/issues/506).
+Duo offers free 2FA for up to 10 users, if you have already setup Duo users and 2FA phones/YubiKeys. this will just work. See - https://duo.com/docs/loginduo
+
+2. [duo_unix-pam](https://github.com/Strykar/openwrt_packages/tree/master/duo_unix-pam) - Duo Unix with Pluggable Authentication Modules (PAM) support provides a secure and customizable method for protecting Unix and Linux logins. `pam_duo.so` is for use with `openssh-server-pam`. See - https://duo.com/docs/duounix
+
+Example `/etc/pam.d/sshd` config:
+```
+#%PAM-1.0
+auth required pam_env.so
+auth sufficient pam_duo.so
+auth requisite pam_succeed_if.so uid >= 500 quiet
+auth required pam_deny.so
+account include system-remote-login
+password include system-remote-login
+session include system-remote-login
+```
+Example `/etc/ssh/sshd_config` config
+```
+PubkeyAuthentication yes
+PasswordAuthentication no
+UsePAM yes
+ChallengeResponseAuthentication yes
+UseDNS no
+```
+
+3. [mosh](https://github.com/Strykar/openwrt_packages/tree/master/mosh) - Mosh is a UDP replacement for interactive SSH terminals. It's more robust and responsive, especially over Wi-Fi, cellular, and long-distance links burdened with latency. See - https://mosh.org
