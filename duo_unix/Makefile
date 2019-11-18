@@ -10,7 +10,7 @@ PKG_VERSION:=1.11.3
 PKG_RELEASE:=1
 
 PKG_SOURCE_PROTO:=git
-PKG_SOURCE_URL:=https://github.com/duosecurity/duo_unix.git
+PKG_SOURCE_URL:=git://github.com/duosecurity/duo_unix.git
 PKG_SOURCE_DATE:=2019-10-10
 PKG_MIRROR_HASH:=beabba9fc286fea651941548aa830920f465ca6b754adb6fbc050ad420d3ae75
 PKG_SOURCE_VERSION:=52715555339b90a2cd79e50b4acf303192540d45
