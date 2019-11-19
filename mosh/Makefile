@@ -76,7 +76,7 @@ endef
 
 define Package/mosh-server
 	$(call Package/mosh/Default)
-	TITLE+= (client)
+	TITLE+= (server)
 endef
 
 define Package/mosh-full
