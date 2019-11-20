@@ -2,7 +2,7 @@
 # This is free software, licensed under the GNU General Public License v2.
 # See /LICENSE for more information.
 # Modified from https://github.com/mchwalisz/mosh-openwrt/blob/master/mosh/Makefile
-#
+# Copyright (C) 2011-2013 Entware
 
 include $(TOPDIR)/rules.mk
 
