@@ -28,5 +28,5 @@ ChallengeResponseAuthentication yes
 UseDNS no
 ```
 
-3. [mosh](https://github.com/Strykar/openwrt_packages/tree/master/mosh) - Mosh is a UDP replacement for interactive SSH terminals. It's more robust and responsive, especially over Wi-Fi, cellular, and long-distance links burdened with latency. See - https://mosh.org</br> Instructions to build for OpenWrt at https://github.com/mobile-shell/mosh/wiki/Build-Instructions
-The Makefile is based off an old version made by Entware
+3. [mosh](https://github.com/Strykar/openwrt_packages/tree/master/mosh) - Mosh is a UDP replacement for interactive SSH terminals. It's more robust and responsive, especially over Wi-Fi, cellular, and long-distance links burdened with latency. See - https://mosh.org</br> Instructions to build for OpenWrt at https://github.com/mobile-shell/mosh/wiki/Build-Instructions</br>
+The Makefile is based off an old version made by Entware.
