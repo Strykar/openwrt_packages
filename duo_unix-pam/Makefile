@@ -55,7 +55,7 @@ CONFIGURE_ARGS += \
 
 define Package/duo_unix-pam/install
 	$(INSTALL_DIR) $(1)/etc/duo/
-	$(INSTALL_DATA) $(PKG_BUILD_DIR)/pam_duo/pam_duo.conf $(1)/etc/config/
+	$(INSTALL_DATA) $(PKG_BUILD_DIR)/pam_duo/pam_duo.conf $(1)/etc/duo
 	
 	$(INSTALL_DIR) $(1)/lib/security/
 	$(INSTALL_BIN) $(PKG_BUILD_DIR)/pam_duo/.libs/pam_duo.so $(1)/lib/security/
